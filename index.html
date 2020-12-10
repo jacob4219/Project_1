@@ -1,11 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>The Man In The Machine</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <h1>Hello World</h1>
+    <!-- Test Area -->
+    <div class="chat">
+        <div class="resizer ne"></div>
+        <div class="resizer nw"></div>
+        <div class="resizer se"></div>
+        <div class="resizer sw"></div>
+    </div>
+    <!-- Test Area -->
+
+    <div id="virtualDesktop">
+        <h1>Virtual Desktop Pro</h1>
+        <h3>Trial Edition</h3>
+
+
+        <!-- Go Button -->
+
+
+
+        <!-- Icons -->
+
+        <!-- Msg Windows -->
+        <!-- Minimized Message Window  Button -->
+
+        <button id="myChatBtn1">:: chat - Anonymous ::</button>
+        <button id="myChatBtn2">:: chat - Dr. Goodman ::</button>
+
+
+
+            <!-- Msg Window 1 -->
+
+            <!-- Modal content -->
+                    <div id="Messages">
+                        <div id="MessageWindow1">
+                            <div style="display:flex; justify-content:space-around;">
+                                <div>
+                                    <h1>Anonymous:</h1>
+                                    <ul id="anonTalk">
+                                    </ul>
+                                    <div id="input-container1">
+                                        <form>
+                                            <label>
+                                                Message:
+                                                <input type="text" id="input-box">
+                                            </label>
+                                            <input type="submit" id="addTaskBtn" value="send" />
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Msg Window 2 -->
+                <div id="MessageWindow2">
+                    <div style="display:flex; justify-content:space-around;"></div>
+                    <div>
+                        <h1>Dr. Goodman:</h1>
+                        <ul id="drTalk">
+                        </ul>
+                        <form>
+                            <label>
+                                Message:
+                                <input type="text" id="input-box">
+                            </label>
+                            <input type="submit" id="addTaskBtn" value="send" />
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="js/app.js" charset="utf-8"></script>
 </body>
+
 </html>
