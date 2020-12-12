@@ -18,57 +18,56 @@ const answerButtonsElement = document.getElementById("answerButtons");
 let shuffleQuestions, currentQuestionIndex;
 
 // add event listeners to my game play buttons and allow the next button to go through my questions array.
-startButton.addEventListener("click", startGame)
+startButton.addEventListener("click", startGame);
 nextButton.addEventListener("click", () => {
-  currentQuestionIndex++
+  currentQuestionIndex++;
   nextQuestion();
 });
 
 // clicking the start button makes it and the intro window disappear. It also makes the question container appear and begin on a random question.
 function startGame() {
-  console.log("The Man In The Machine Has Begun")
+  console.log("The Man In The Machine Has Begun");
   startButton.classList.add("hide");
-  shuffleQuestions = questions.sort(() => Math.random() - 0.5)
-  currentQuestionIndex = 0
-  questionContainerElement.classList.remove("hide")
+  shuffleQuestions = questions.sort(() => Math.random() - 0.5);
+  currentQuestionIndex = 0;
+  questionContainerElement.classList.remove("hide");
   nextQuestion();
 }
 
 // allows for a reset state.
 function nextQuestion() {
   resetState();
-  showQuestion(shuffleQuestions[currentQuestionIndex])
+  showQuestion(shuffleQuestions[currentQuestionIndex]);
 }
-
 
 function showQuestion(question) {
   questionElement.innerText = question.question;
   question.answers.forEach((answer) => {
-    const button = document.createElement("button")
+    const button = document.createElement("button");
     button.innerText = answer.text;
-    button.classList.add("answerBtn")
+    button.classList.add("answerBtn");
     if (answer.correct) {
-      button.dataset.correct = answer.correct
+      button.dataset.correct = answer.correct;
     }
-    button.addEventListener("click", selectAnswer)
-    answerButtonsElement.appendChild(button)
+    button.addEventListener("click", selectAnswer);
+    answerButtonsElement.appendChild(button);
   });
 }
 
 function resetState() {
-  clearStatusClass(document.body)
-  nextButton.classList.add("hide")
+  clearStatusClass(document.body);
+  nextButton.classList.add("hide");
   while (answerButtonsElement.firstChild) {
-    answerButtonsElement.removeChild(answerButtonsElement.firstChild)
+    answerButtonsElement.removeChild(answerButtonsElement.firstChild);
   }
 }
 
 function selectAnswer(e) {
-  const selectedButton = e.target
-  const correct = selectedButton.dataset.correct
-  setStatusClass(document.body, correct)
+  const selectedButton = e.target;
+  const correct = selectedButton.dataset.correct;
+  setStatusClass(document.body, correct);
   Array.from(answerButtonsElement.children).forEach((button) => {
-    setStatusClass(button, button.dataset.correct)
+    setStatusClass(button, button.dataset.correct);
   });
   if (shuffleQuestions.length > currentQuestionIndex + 1) {
     nextButton.classList.remove("hide");
@@ -98,7 +97,7 @@ function clearStatusClass(element) {
 
 const questions = [
   {
-    question: "Is the world changing?",
+    question: "Is the Earth round?",
     answers: [
       { text: "Yes", correct: true },
       { text: "No", correct: false },
@@ -115,9 +114,7 @@ const questions = [
   },
   {
     question: "Are you sure you want to proceed?",
-    answers: [
-      { text: "Yes", correct: true },
-    ],
+    answers: [{ text: "Yes", correct: true }],
   },
   {
     question: "What color is the sky?",
@@ -125,7 +122,7 @@ const questions = [
       { text: "green", correct: false },
       { text: "beige", correct: false },
       { text: "red", correct: false },
-      { text: "blue", correct: true },      
+      { text: "blue", correct: true },
     ],
   },
   {
@@ -134,12 +131,10 @@ const questions = [
       { text: "The Other Side Of The Pillow", correct: false },
       { text: "Ice Cold", correct: true },
       { text: "Big Cats", correct: false },
-      { text: "Big Dogs", correct: false },      
+      { text: "Big Dogs", correct: false },
     ],
   },
 ];
-
-
 
 ///////////////////////////////////////
 //// Icons ////
@@ -160,7 +155,7 @@ const browserIcon = document.getElementById("vdpBrowserIcon");
 
 vdpBrowserIcon.addEventListener("click", clickBrowser);
 
-function clickBrowser () {
+function clickBrowser() {
   alert(
     "Browser is not available in trial mode. Unlock premium now to use this feature!"
   );
@@ -170,7 +165,7 @@ const storageIcon = document.getElementById("vdpStorageIcon");
 
 vdpStorageIcon.addEventListener("click", clickStorage);
 
-function clickStorage () {
+function clickStorage() {
   alert(
     "Cloud Storage is not available in trial mode. Unlock premium now to use this feature!"
   );
@@ -189,23 +184,20 @@ function buyPremium() {
 
 function closePremiumWindow() {
   purchase.classList.add("hide");
-
 }
 
-
-
 // Open Anonymous Chat and Receive Game Icon //
-function openChatWindow () {
-    openMessage.classList.remove("hide");
+function openChatWindow() {
+  openMessage.classList.remove("hide");
 }
 
 const sendMessage = document.getElementById("sendButton");
 
-sendMessage.addEventListener("click", clickSend)
+sendMessage.addEventListener("click", clickSend);
 
 const openPrison = document.getElementById("prison");
 
-sendMessage.addEventListener("click", openPrisonIcon)
+sendMessage.addEventListener("click", openPrisonIcon);
 
 function clickSend() {
   alert("VDP(te) no longer supports chat functionality.");
@@ -213,52 +205,54 @@ function clickSend() {
 }
 
 function openPrisonIcon() {
-  openPrison.classList.remove("hide")
+  openPrison.classList.remove("hide");
 }
 
 // Open Game //
 
-const openGame = document.getElementById("game")
+const openGame = document.getElementById("game");
 
-prisonIcon.addEventListener("click", openGamePlay)
+prisonIcon.addEventListener("click", openGamePlay);
 
-function openGamePlay () {
-  openGame.classList.remove("hide")
+function openGamePlay() {
+  openGame.classList.remove("hide");
 }
 
-const makeMessage = document.getElementById("startMessage")
+const makeMessage = document.getElementById("startMessage");
 
-prisonIcon.addEventListener("click", createMessage)
+prisonIcon.addEventListener("click", createMessage);
 
-function createMessage () {
-  makeMessage.classList.remove("hide")
+function createMessage() {
+  makeMessage.classList.remove("hide");
 }
 
-startButton.addEventListener("click", removeMessage)
+startButton.addEventListener("click", removeMessage);
 
-function removeMessage () {
-  makeMessage.classList.add("hide")
+function removeMessage() {
+  makeMessage.classList.add("hide");
 }
 
-const lockVisual = document.getElementById("visualLock")
+const lockVisual = document.getElementById("visualLock");
 
-startButton.addEventListener("click", onVisual)
+startButton.addEventListener("click", onVisual);
 
-function onVisual () {
-  lockVisual.classList.remove("hide")
+function onVisual() {
+  lockVisual.classList.remove("hide");
 }
 
-startButton.addEventListener("click", trialExpired)
-function trialExpired () {
-  alert("You have 1 minute remaining on your free trial. Unlock premium to enjoy unlimited VDP!!!");
+startButton.addEventListener("click", trialExpired);
+function trialExpired() {
+  alert(
+    "You have 20 seconds remaining on your free trial. Unlock premium to enjoy unlimited VDP!!!"
+  );
 }
 
 // Timer
-startButton.addEventListener("click", timesUP)
+startButton.addEventListener("click", timesUP);
 
-function timesUP() {
-  alert("Your free trial has expired. Thanks for enjoying Virtual Desktop Pro!")
-}
+// function timesUP() {
+//   alert("Your free trial has expired. Thanks for enjoying Virtual Desktop Pro!")
+// }
 
 // Clock
 var myVar = setInterval(myTimer, 1000);
@@ -267,10 +261,6 @@ function myTimer() {
   var d = new Date();
   document.getElementById("clock").innerHTML = d.toLocaleTimeString();
 }
-
-
-
-
 
 /////////////////////////////////////////////////
 // Drag Windows ////

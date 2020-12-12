@@ -18,6 +18,7 @@ Technologies Used:
 - HTML
 - CSS
 - JavaScript
+- iconmonstr.com
 
 Devlopment Plan
 I sketched out the flow of the website on several sheets of paper, free hand.
