@@ -4,86 +4,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Man In The Machine</title>
+    <title>Virtual Desktop Pro (trial)</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"
         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
-    <!-- Test Area -->
-    <div class="chat">
-        <div class="resizer ne"></div>
-        <div class="resizer nw"></div>
-        <div class="resizer se"></div>
-        <div class="resizer sw"></div>
+
+
+    <div id="vdpHeader">
+        <h1 id="vdpTitle">Virtual Desktop Pro</h1>
+        <h2>(trial edition)</h2>
+        <br>
+        <br>
+        <br>
+        <h3>
+        <p id="clock"></p>
+    </h3>
     </div>
-    <!-- Test Area -->
-
+    <!-- Virtual Desktop -->
     <div id="virtualDesktop">
-        <h1>Virtual Desktop Pro</h1>
-        <h3>Trial Edition</h3>
-
-
-        <!-- Go Button -->
-
-
 
         <!-- Icons -->
-
-        <!-- Msg Windows -->
-        <!-- Minimized Message Window  Button -->
-
-        <button id="myChatBtn1">:: chat - Anonymous ::</button>
-        <button id="myChatBtn2">:: chat - Dr. Goodman ::</button>
-
-
-
-            <!-- Msg Window 1 -->
-
-            <!-- Modal content -->
-                    <div id="Messages">
-                        <div id="MessageWindow1">
-                            <div style="display:flex; justify-content:space-around;">
-                                <div>
-                                    <h1>Anonymous:</h1>
-                                    <ul id="anonTalk">
-                                    </ul>
-                                    <div id="input-container1">
-                                        <form>
-                                            <label>
-                                                Message:
-                                                <input type="text" id="input-box">
-                                            </label>
-                                            <input type="submit" id="addTaskBtn" value="send" />
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Msg Window 2 -->
-                <div id="MessageWindow2">
-                    <div style="display:flex; justify-content:space-around;"></div>
-                    <div>
-                        <h1>Dr. Goodman:</h1>
-                        <ul id="drTalk">
-                        </ul>
-                        <form>
-                            <label>
-                                Message:
-                                <input type="text" id="input-box">
-                            </label>
-                            <input type="submit" id="addTaskBtn" value="send" />
-                        </form>
-                    </div>
-                </div>
+        <div class="icons">
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMjIgM3YxM2gtMTEuNjQzbC00LjM1NyAzLjEwNXYtMy4xMDVoLTR2LTEzaDIwem0yLTJoLTI0djE2Ljk4MWg0djUuMDE5bDctNS4wMTloMTN2LTE2Ljk4MXptLTUgNmgtMTR2LTFoMTR2MXptMCAyaC0xNHYxaDE0di0xem0tNiAzaC04djFoOHYtMXoiLz48L3N2Zz4="
+                id="vdpChatIcon">
+            <br>
+            <div id="vdpChatIconText">
+                <h2>VDP Chat</h2>
             </div>
+            <br>
+            <br>
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik0xNS4yNDYgMTdjLS45MjcgMy43MDEtMi41NDcgNi0zLjI0NiA3LS42OTktMS0yLjMyLTMuMjk4LTMuMjQ2LTdoNi40OTJ6bTcuNjY0IDBjLTEuNTU4IDMuMzkxLTQuNjUgNS45MzMtOC4zODYgNi43MzMgMS4zMTUtMi4wNjggMi4yNDItNC4zNjIgMi43NzctNi43MzNoNS42MDl6bS0yMS44MiAwaDUuNjA5Yy41MzkgMi4zODYgMS40NyA0LjY3OCAyLjc3NyA2LjczMy0zLjczNi0uOC02LjgyOC0zLjM0Mi04LjM4Ni02LjczM3ptMTQuNTUtMmgtNy4yOGMtLjI5LTEuOTg1LS4yOS00LjAxNCAwLTZoNy4yODFjLjI4OCAxLjk4Ni4yODggNC4wMTUtLjAwMSA2em0tOS4yOTkgMGgtNS45NjJjLS4yNDgtLjk1OC0uMzc5LTEuOTY0LS4zNzktM3MuMTMxLTIuMDQxLjM3OS0zaDUuOTYyYy0uMjYzIDEuOTg4LS4yNjMgNC4wMTIgMCA2em0xNy4yOCAwaC01Ljk2M2MuMjY1LTEuOTg4LjI2NS00LjAxMi4wMDEtNmg1Ljk2MmMuMjQ3Ljk1OS4zNzkgMS45NjQuMzc5IDNzLS4xMzIgMi4wNDItLjM3OSAzem0tOC4zNzUtOGgtNi40OTJjLjkyNS0zLjcwMiAyLjU0Ni02IDMuMjQ2LTcgMS4xOTQgMS43MDggMi40NDQgMy43OTkgMy4yNDYgN3ptLTguNTQ4LS4wMDFoLTUuNjA5YzEuNTU5LTMuMzkgNC42NTEtNS45MzIgOC4zODctNi43MzMtMS4yMzcgMS45NC0yLjIxNCA0LjIzNy0yLjc3OCA2LjczM3ptMTYuMjEyIDBoLTUuNjA5Yy0uNTU3LTIuNDYyLTEuNTEzLTQuNzUtMi43NzgtNi43MzMgMy43MzYuODAxIDYuODI5IDMuMzQzIDguMzg3IDYuNzMzeiIvPjwvc3ZnPg=="
+                id="vdpBrowserIcon">
+            <br>
+            <div id="vdpBrowserIconText">
+                <h2>VDP Browser</h2>
+            </div>
+            <br>
+            <br>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTguNTE2IDE4LjQ0OGMxLjY0OCAxLjk0Ni0xLjM2NSAzLjgwMi0yLjI5MiAxLjQ1MS0uNDI1LTEuMDgxLTEuNDM4LTMuNzYtMS42OS00LjQzNC0uMzEzLS44MzMuNDk5LTEuMjUgMS4wMTItLjU1Ny4zNC40NTkgMi4yNjMgMi43MDYgMi45NyAzLjU0em0zLjQ4NC0xOC40NDh2MjRoLTIwdi0yNGgyMHptLTIgMmgtMTZ2MjBoMXYtMS41YzAtLjI3Ni4yMjQtLjUuNS0uNXMuNS4yMjQuNS41djEuNWgxdi0xLjVjMC0uMjc2LjIyNC0uNS41LS41cy41LjIyNC41LjV2MS41aDF2LTEuNWMwLS4yNzYuMjI0LS41LjUtLjVzLjUuMjI0LjUuNXYxLjVoMTB2LTIwem0tOCA3Yy0uNTUxIDAtMSAuNDQ5LTEgMXMuNDQ5IDEgMSAxIDEtLjQ0OSAxLTEtLjQ0OS0xLTEtMXptMC02YzMuODY2IDAgNyAzLjEzNCA3IDcgMCAxLjk1Ni0uODA0IDMuNzIzLTIuMDk4IDQuOTkzLS4yNjItLjMxNC0uNDctLjU2OS0uNTU0LS42ODItLjM1NC0uNDc4LS44NjEtLjc1My0xLjM5MS0uNzUzLS40ODUgMC0uOTM5LjIzNy0xLjIxNS42MzUtLjMxMS40NDktLjM2NCAxLjA0MS0uMTQ1IDEuNjIzbC4zNDEuOTA2Yy0uNjE2LjE3Ny0xLjI2NS4yNzgtMS45MzguMjc4LTMuODY2IDAtNy0zLjEzNC03LTdzMy4xMzQtNyA3LTd6bS0yLjUgMi44MzZjLjY1Ni0uMzk2IDEuMzc0LS42MDUgMi4wOTEtLjY1bC4xMi0uNzc3Yy0uODkzLjAyOC0xLjc5LjI3Ni0yLjYwOS43NzEtLjgxOC40OTItMS40NTUgMS4xNzEtMS44OTcgMS45NDdsLjc0NC4yNTdjLjM3NC0uNjEzLjg5My0xLjE1IDEuNTUxLTEuNTQ4em0uNzk0IDEuMzE4Yy4zMzQtLjIwMS42OTItLjMyNCAxLjA1Ni0uMzg3bC4xMjEtLjc5MmMtLjU0LjA1Ny0xLjA3Ny4yMi0xLjU3NS41MjEtLjQ5Ni4zLS44OS42OTgtMS4xOTMgMS4xNDlsLjc1Ni4yNjRjLjIyNi0uMjkzLjUwMS0uNTUzLjgzNS0uNzU1em0zLjcwNiAyLjg0NmMwLTEuMTA1LS44OTUtMi0yLTJzLTIgLjg5NS0yIDIgLjg5NSAyIDIgMiAyLS44OTUgMi0yeiIvPjwvc3ZnPg=="
+                id="vdpStorageIcon">
+            <br>
+            <div id="vdpBrowserIconText">
+                <h2>VDP Cloud 
+                    <br>
+                    Storage</h2>
+            </div>
+            <br>
+            <br>
+            <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0Ij48cGF0aCBkPSJNMTIgMmM1LjUxNCAwIDEwIDQuNDg2IDEwIDEwcy00LjQ4NiAxMC0xMCAxMC0xMC00LjQ4Ni0xMC0xMCA0LjQ4Ni0xMCAxMC0xMHptMC0yYy02LjYyNyAwLTEyIDUuMzczLTEyIDEyczUuMzczIDEyIDEyIDEyIDEyLTUuMzczIDEyLTEyLTUuMzczLTEyLTEyLTEyem00IDE3aC04di02aDh2NnptLTYtNnYtMmMwLTEuMTA0Ljg5Ny0yIDItMnMyIC44OTYgMiAydjJoMXYtMmMwLTEuNjU2LTEuMzQzLTMtMy0zcy0zIDEuMzQ0LTMgM3YyaDF6Ii8+PC9zdmc+" id="vdpPremiumIcon">
+            <br>
+            <div id="vdpPremiumIconText">
+                <h2>Unlock VDP
+                    <br>
+                    Premium</h2>
+            </div>
+            <br>
         </div>
 
+        <div id="prison"class="hide">
+            <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiPjxwYXRoIGQ9Ik03IDE2LjQ2MmwxLjUyNi0uNzIzYzEuNzkyLS44MSAyLjg1MS0uMzQ0IDQuMzQ5LjIzMiAxLjcxNi42NjEgMi4zNjUuODgzIDMuMDc3IDEuMTY0IDEuMjc4LjUwNi42ODggMi4xNzctLjU5MiAxLjgzOC0uNzc4LS4yMDYtMi44MTItLjc5NS0zLjM4LS45MzEtLjY0LS4xNTQtLjkzLjYwMi0uMzIzLjgxOCAxLjEwNi4zOTMgMi42NjMuNzkgMy40OTQgMS4wMDcuODMxLjIxOCAxLjI5NS0uMTQ1IDEuODgxLS42MTEuOTA2LS43MiAyLjk2OC0yLjkwOSAyLjk2OC0yLjkwOS44NDItLjc5OSAxLjk5MS0uMTM1IDEuOTkxLjcyIDAgLjIzLS4wODMuNDc0LS4yNzYuNzA3LTIuMzI4IDIuNzkzLTMuMDYgMy42NDItNC41NjggNS4yMjYtLjYyMy42NTUtMS4zNDIuOTc0LTIuMjA0Ljk3NC0uNDQyIDAtLjkyMi0uMDg0LTEuNDQzLS4yNS0xLjgyNS0uNTgxLTQuMTcyLTEuMzEzLTYuNS0xLjZ2LTUuNjYyem0tMSA2LjUzOGgtNHYtOGg0djh6bTE1LTExLjQ5N2wtNi41IDMuNDY4di03LjIxNWw2LjUtMy4zNDV2Ny4wOTJ6bS03LjUtMy43NzF2Ny4yMTZsLTYuNDU4LTMuNDQ1di03LjEzM2w2LjQ1OCAzLjM2MnptLTMuNDA4LTUuNTg5bDYuNTI2IDMuMzk4LTIuNTk2IDEuMzM2LTYuNDUxLTMuMzU5IDIuNTIxLTEuMzc1em0xMC4zODEgMS40MTVsLTIuNzY2IDEuNDIzLTYuNTU4LTMuNDE1IDIuODcyLTEuNTY2IDYuNDUyIDMuNTU4eiIvPjwvc3ZnPg==" id="prisonIcon">
+        
+        <br>
+            <div id="PrisonIconText">
+                <h2>Dr. Goodman
+                    <br>
+                    ONLY</h2>
+            </div>
+            <br>
+        </div>
 
-        <script src="js/app.js" charset="utf-8"></script>
+        <!-- Minimized Message Window  Button -->
+        <div class="minimizedChat">
+            <button id="myChatBtn1" class="hide">:: chat - Anonymous ::</button>
+            <button id="myChatBtn2" class="hide">:: chat - Dr. Goodman ::</button>
+            <button id="browserBtn" class="hide">:: VDP Web ::</button>
+        </div>
+    </div>
+
+    <!-- Game Window -->
+    <div id="game" class="hide">
+        <div id="visualLock" class="hide">
+            <br>
+            <br>
+            |||||||| Locked ||||||||
+            <br>
+            <br>
+            <br>
+        </div>
+
+        <div id="gameQuestions" class="hide">
+            <div id="question">Question:</div>
+            <br>
+            <div id="answerButtons" class="buttonsOptions">
+                <button class="answerBtn">Answer 1</button>
+                <button class="answerBtn">Answer 2</button>
+                <button class="answerBtn">Answer 3</button>
+                <button class="answerBtn">Answer 4</button>
+            </div>
+        </div>
+        <div class="controls">
+            <div id="startMessage" class=hide>
+                <br>
+                <h1>::: Hello Dr. Goodman :::</h1>
+                <br>
+               Welcome to the Virtual Prison Management System (VPMS)(te)
+                <br>
+                You are about to release a very dangerous man.
+                <br>
+                Proceed with caution.
+                <br>
+                <br>
+                <br>
+                First Question:
+                <br>
+                <br>
+                Are you of sound mind?
+                <br>
+                <br>
+            </div>
+            <button id="startButton" class="startButton button">Yes</button>
+            <!-- <button id="yesButton" class="yesButton">Yes</button> -->
+            <button id="nextButton" class="nextButton button hide">Next Question</button>
+            <br>
+            <br>
+        </div>
+        <div>
+        </div>
+    </div>
+
+    <!-- Unlock Premium -->
+    <div id="buyPremium" class="hide">
+        <h1>Virtual Desktop Pro Premium</h1>
+        <br>
+        <h2>Virtual Desktop Pro Premium is no longer available for purchase. 
+            <br>
+            <br>
+            We apologize for the inconvenience.</h2>
+            
+            <br>
+                <button id="closePremiumBtn">OK</button>
+                <br>
+            </div>
+        
+    <!-- Bottom Menu Bar -->
+        <div class="startMenu">
+            <br>
+            ver 3.5.82
+        </div>
+    <!-- Msg Windows -->
+    <!-- Msg Window 1 -->
+    <br>
+    <br>
+    <div id="chat" class="hide">
+        <h1>Anonymous:</h1>
+        <h2>Help! my name is REDACTED.
+            <br>
+            I've been imprisoned here by an evil Dr.
+            <br>
+            He's destroyed my life...
+            <br>
+        <br>
+    Don't let his name fool you, Dr. Goodman
+<br>
+is not who he says he is...
+<br>
+<br>
+I'm sending you the locking mechanism.
+<br>
+You'll have to answer correctly a series of questions.
+<br>
+<br>
+BE CAREFUL.
+<br>
+You'll have to answer them all correctly.
+<br>
+But you should have plenty of time...
+<br>
+Will you help me?</h2>
+        <ul id="anonTalk">
+        </ul>
+        <form>
+            <label>
+                <input type="text" id="input-box" />
+            </label>
+            <button id="sendButton">send</button>
+        </form>
+    </div>
+
+    <!-- Msg Window 2
+    <div class="chat2 hide">
+        <h1>Dr. Goodman:</h1>
+        <ul id="drTalk">
+        </ul>
+        <form>
+            <label>
+                Message:
+                <input type="text" id="input-box">
+            </label>
+            <input type="submit" id="sendMessage" value="send" />
+        </form>
+    </div> -->
+    <script src="/Users/Jacob/code/Project_1/js/app.js" charset="utf-8"></script>
 </body>
+<!-- <ul id="drTalk">
+            </ul>
+            <form>
+                <label>
+                    Message:
+                    <input type="text" id="input-box">
+                </label>
+                <input type="submit" id="sendMessage" value="send" />
+            </form> -->
 
 </html>
