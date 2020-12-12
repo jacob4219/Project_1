@@ -5,10 +5,6 @@
 
 /* General style  */
 
-/* img { 
-    width: 100%;
-    height: 100%;
-} */
 :root {
   --hue-neutral: 180;
   --hue-wrong: 0;
@@ -161,7 +157,7 @@ h2{
    --hue: var(--hue-wrong);
  }
 
- .yesButton, .nextButton, .startButton, .getPrisonIcon, #closePrison, #closePremiumBtn, #addTaskBtn {
+ .yesButton, .nextButton, .startButton, .getPrisonIcon, #closePrison, #closePremiumBtn, #addTaskBtn, #sendButton {
    font-size: 1rem;
    font-weight: bold;
    padding: 0px 20px;

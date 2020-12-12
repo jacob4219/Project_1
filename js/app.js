@@ -2,6 +2,15 @@
 alert(
   "Due to the passing of our beloved founder Dr. Goodman, Virtual Desktop Pro (trial edition) will no longer be supported or maintained. The entire VDP(te) team thanks you all for the many years of loyalty. In accordance with Dr. Goodman's last will and testament the site will remain online, in its final state, indefinitely.    - VDP(te) Development Team"
 );
+///////////////////////////////////////////////////
+//// Clock ////
+///////////////////////////////////////////////////
+var myVar = setInterval(myTimer, 1000);
+
+function myTimer() {
+  var d = new Date();
+  document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+}
 
 ///////////////////////////////////////////////////
 //// GAME ////
@@ -92,7 +101,7 @@ function clearStatusClass(element) {
 }
 
 //////////////////////////////
-//// Questions ////
+///// Questions /////
 //////////////////////////////
 
 const questions = [
@@ -203,12 +212,20 @@ function clickSend() {
   alert("VDP(te) no longer supports chat functionality.");
   event.preventDefault();
 }
+  var msgDelay = 5000; 
+
+setTimeout(function() {
+}, msgDelay);
 
 function openPrisonIcon() {
-  openPrison.classList.remove("hide");
+  openPrison.classList.remove("hide")
+
 }
 
-// Open Game //
+
+//////////////////////////////////////////////////
+//// Open And Close Items ////
+//////////////////////////////////////////////////
 
 const openGame = document.getElementById("game");
 
@@ -243,27 +260,11 @@ function onVisual() {
 startButton.addEventListener("click", trialExpired);
 function trialExpired() {
   alert(
-    "You have 20 seconds remaining on your free trial. Unlock premium to enjoy unlimited VDP!!!"
-  );
-}
-
-// Timer
-startButton.addEventListener("click", timesUP);
-
-// function timesUP() {
-//   alert("Your free trial has expired. Thanks for enjoying Virtual Desktop Pro!")
-// }
-
-// Clock
-var myVar = setInterval(myTimer, 1000);
-
-function myTimer() {
-  var d = new Date();
-  document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-}
+    "You have 20 seconds remaining on your free trial. Unlock premium to enjoy unlimited VDP!!!");
+  };
 
 /////////////////////////////////////////////////
-// Drag Windows ////
+//// Drag Divs ////
 /////////////////////////////////////////////////
 
 // const dragAround = document.querySelector("#chat")
